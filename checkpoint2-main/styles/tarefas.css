@@ -1,0 +1,398 @@
+@import url("./common.css");
+
+header {
+  display: flex;
+  background: linear-gradient(
+    45deg,
+    var(--primary),
+    var(--secondary)
+  ); /* Alteração: Roberto */
+  box-shadow: 0px 3px 5px lightgrey;
+  padding: 0 3em;
+  margin-bottom: 2em;
+}
+
+a {
+  display: block;
+  width: fit-content;
+  padding: 0.7em 1em;
+  border-bottom: 0.2em solid white;
+  text-decoration: none;
+  color: white;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  color: rgb(223, 223, 223);
+}
+
+.user-info p {
+  text-transform: capitalize;
+  color: var(--app-cta); /* Alteração: Roberto */
+}
+
+.user-info .user-image {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 1;
+  margin-left: 0.7em;
+}
+
+/* css da imagem do avatar: */
+.user-image img {
+  height: 2em;
+  width: 2em;
+  background-color: white;
+  border-radius: 50%;
+}
+
+#closeApp {
+  margin-left: 15px;
+  font-size: 0.6em; /* Alteração: Roberto */
+  background-color: var(--app-cta); /* Alteração: Roberto */
+  text-transform: uppercase;
+  color: white;
+  border-radius: 50vh;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Nova tarefa ----------------------------------------------------------- */
+
+.nova-tarefa {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary); /* Alteração: Roberto */
+  color: #fff;
+  width: 80%;
+  margin: 0 10%;
+  padding: 1em;
+  box-shadow: 2px 2px 10px lightgrey;
+  border-radius: 0.4em; /* Alteração: Roberto */
+  z-index: 20;
+  margin-bottom: 15px;
+}
+
+.nova-tarefa input[type="text"] {
+  border: none;
+  flex: 1;
+  border-bottom: 1px solid lightgrey;
+  border-radius: 0;
+  padding: 0.3em;
+  font-size: 1.1em;
+  background-color: var(--primary); /* Alteração: Roberto */
+  color: #fff; /* Alteração: Roberto */
+}
+
+.nova-tarefa input[type="radio"] {
+  margin-left: 10px; /* Alteração: Roberto */
+}
+
+.nova-tarefa input:focus {
+  outline: none;
+  border-bottom: 1px solid grey;
+}
+
+.nova-tarefa input::placeholder {
+  color: rgb(197, 197, 197);
+  text-indent: 0.2em;
+}
+
+.nova-tarefa button {
+  height: 2em;
+  width: 2em;
+  background-color: transparent;
+  margin-left: 2em;
+  margin-right: 1em;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.nova-tarefa button:hover {
+  opacity: 1;
+}
+
+.nova-tarefa button img {
+  height: 100%;
+  width: 100%;
+}
+
+.not-done {
+  width: 2em;
+  height: 2em;
+  background-color: #ffac4a;
+  margin-right: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  color: grey;
+}
+
+/* Lista de tarefas ----------------------------------------------------------- */
+
+.tarefas-pendentes {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  list-style: none;
+  margin: 2em 15%;
+}
+
+.tarefa {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.tarefa .not-done {
+  position: relative;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: #ffac4a;
+  box-shadow: 2px 2px 5px lightgrey;
+  border: 2px solid var(--secondary);
+  z-index: 2;
+  transition: background-color 200ms linear;
+}
+
+.tarefa .not-done:hover {
+  background-color: var(--primary);
+}
+
+.tarefa:first-child .not-done::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: calc(0.75em - 1px);
+  display: block;
+  height: 3em;
+  width: 2px;
+  background-color: var(--secondary);
+}
+
+.tarefa:not(:last-child) .not-done::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: calc(0.75em - 1px);
+  display: block;
+  height: 4.5em;
+  width: 2px;
+  background-color: var(--secondary);
+}
+
+.tarefa .descricao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  background-color: white;
+  padding: 1em 2em;
+  box-shadow: 2px 2px 5px lightgrey;
+}
+
+.tarefa .nome {
+  color: rgb(95, 95, 95);
+}
+
+.tarefa .timestamp {
+  font-size: 0.9em;
+  color: rgb(134, 134, 134);
+}
+
+/* Tarefas terminadas ----------------------------------------------------------- */
+
+.titulo-tarefas {
+  position: relative;
+  width: 8em;
+  text-align: center;
+  padding: 0.5em 1em;
+  background-color: #433563; /* Alteração: Roberto */
+  border-radius: 0.4em; /* Alteração: Roberto */
+  box-shadow: 3px 3px 5px lightgrey;
+  color: #fff; /* Alteração: Roberto */
+  font-weight: 400;
+  font-size: 1.1em;
+  margin-left: calc(15% - 4em);
+  z-index: 20;
+}
+
+.tarefas-terminadas {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  list-style: none;
+  margin: 2em 15%;
+}
+
+.tarefas-terminadas i {
+  color: grey;
+  background-color: rgb(228, 228, 228);
+}
+.tarefas-terminadas button {
+  margin-left: 10px;
+}
+
+.tarefas-terminadas .tarefa .descricao {
+  background-color: rgb(228, 228, 228);
+}
+
+.tarefas-terminadas .tarefa .descricao .nome {
+  color: grey;
+  text-decoration: line-through;
+}
+
+#skeleton .descricao {
+  background-color: rgb(189, 189, 189);
+}
+#skeleton p {
+  background-color: rgb(214, 214, 214);
+  color: rgb(214, 214, 214);
+}
+#skeleton .not-done {
+  background-color: rgb(189, 189, 189);
+}
+
+#skeleton {
+  animation: trasparencia 1s infinite;
+}
+
+.lixeira {
+  height: 16px;
+  width: 0px;
+}
+
+.lixeira img {
+  height: 1.5em;
+  width: 1.5em;
+  background-color: transparent;
+  margin-left: 3em;
+  margin-right: 1em;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.comentarioApagarTarefa {
+  position: relative;
+  top: -42px;
+  left: 76px;
+  padding: 2px;
+  line-height: 20px;
+  background: #ffac4a;
+  color: rgb(24, 21, 21);
+  display: block;
+  width: 52px;
+  opacity: 0;
+  font-size: smaller;
+  text-align: center;
+  z-index: 1;
+  border-radius: 0.4em;
+
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.lixeira:hover .comentarioApagarTarefa {
+  opacity: 1;
+}
+
+#enviarPendente {
+  height: 16px;
+  width: 8px;
+}
+
+#enviarPendente img {
+  height: 1.5em;
+  width: 1.5em;
+  background-color: transparent;
+  margin-left: 1em;
+  margin-right: 1em;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#comentarioMarcarComoPendente {
+  position: relative;
+  top: -42px;
+  left: -113px;
+  padding: 3px;
+  line-height: 20px;
+  background: #ffac4a;
+  color: rgb(24, 21, 21);
+  display: block;
+  width: 116px;
+  opacity: 0;
+  font-size: smaller;
+  text-align: center;
+  z-index: 1;
+  border-radius: 0.4em;
+
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+#enviarPendente:hover #comentarioMarcarComoPendente {
+  opacity: 1;
+}
+
+#completar {
+  height: 16px;
+  width: 8px;
+}
+
+#completar img {
+  height: 1.5em;
+  width: 1.5em;
+  background-color: transparent;
+  margin-left: 1em;
+  margin-right: 1em;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#comentarioTerminar {
+  position: relative;
+  top: -42px;
+  left: -47px;
+  padding: 3px;
+  line-height: 20px;
+  background: #ffac4a;
+  color: rgb(24, 21, 21);
+  display: block;
+  width: 52px;
+  opacity: 0;
+  font-size: smaller;
+  text-align: center;
+  z-index: 1;
+  border-radius: 0.4em;
+
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+#completar:hover #comentarioTerminar {
+  opacity: 1;
+}
+
+@keyframes trasparencia {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}

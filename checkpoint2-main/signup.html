@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+
+  <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
+  <link rel="stylesheet" href="styles/acesso.css">
+  <link rel="stylesheet" href="styles/spinner.css">
+
+</head>
+
+<body>
+
+  <div class="left">
+    <img src="assets/pessoa-signup.png" alt="">
+  </div>
+  <div class="right">
+    <form>
+      <div class="form-header">
+        <p>To-Do App</p>
+      </div>
+
+      <label>
+        Avatar:
+        <input id="avatar" type="text" placeholder="cole o link de uma imagem">
+      </label>
+      <label>
+        Nome:
+        <input id="nome" type="text">
+        <small id="nomeValidacao"></small>
+      </label>
+      <label>
+        Sobrenome:
+        <input id="sobrenome" type="text">
+        <small id="sobrenomeValidacao"></small>
+      </label>
+      <label>
+        Email:
+        <input id="email" type="text">
+        <small id="emailValidacao"></small>
+      </label>
+      <label>
+        Senha:
+        <input id="senha" type="password">
+        <small id="senhaValidacao"></small>
+      </label>
+      <label>
+        Repetir senha:
+        <input id="repeteSenha" type="password">
+        <small id="repeteSenhaValidacao"></small>
+      </label>
+
+      <div id="termos">
+        <input id="checkbox" class="form-check-input" type="checkbox" value="1">
+        <label class="form-check-label" for="checkbox"> Li e aceito os termos de uso do aplicativo To Do
+          <br><small id="termosValidacao"></small>
+        </label>
+
+      </div>
+      <br>
+
+      <small id="signupValidacao"></small>
+
+      <button id="botaoSignup" type="submit">Criar conta</button>
+
+    </form>
+    <div class="ingressar">
+      <a href="index.html">Já possui conta? Acesse aqui</a>
+    </div>
+  </div>
+
+  <script src="scripts/validacoes/utils.js"></script>
+  <script src="scripts/signup/signup.js"></script>
+  <script src="scripts/animations/spinner.js"></script>
+</body>
+
+</html>
